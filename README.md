@@ -1,4 +1,4 @@
-# Xiaomi Mi Air Purifier & Xiaomi Mi Air Humidifier
+# Xiaomi Mi - Local by TCR
 
 ![GitHub actions](https://github.com/syssi/xiaomi_airpurifier/actions/workflows/ci.yaml/badge.svg)
 ![GitHub stars](https://img.shields.io/github/stars/syssi/xiaomi_airpurifier)
