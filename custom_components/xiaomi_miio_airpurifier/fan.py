@@ -88,6 +88,7 @@ from homeassistant.const import (
     CONF_HOST,
     CONF_NAME,
     CONF_TOKEN,
+    CONF_UNIQUE_ID
 )
 from homeassistant.exceptions import PlatformNotReady
 import homeassistant.helpers.config_validation as cv
@@ -163,6 +164,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Required(CONF_HOST): cv.string,
         vol.Required(CONF_TOKEN): vol.All(cv.string, vol.Length(min=32, max=32)),
+        vol.Required(CONF_UNIQUE_ID): cv.string,
         vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
         vol.Optional(CONF_MODEL): vol.In(
             [
@@ -1111,7 +1113,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     retries = config[CONF_RETRIES]
 
     _LOGGER.info("Initializing with host %s (token %s...)", host, token[:5])
-    unique_id = None
+    unique_id = config[CONF_UNIQUE_ID]
 
     if model is None:
         try:
